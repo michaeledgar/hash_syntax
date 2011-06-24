@@ -21,8 +21,8 @@ hash_syntax #{HashSyntax::Version::STRING} by Michael Edgar (adgar@carboni.ca)
 
 Automatically convert hash symbol syntaxes in your Ruby code.
 EOF
-        opt :to_18, 'Convert to Ruby 1.8 syntax (:key => value)'
-        opt :to_19, 'Convert to Ruby 1.9 syntax (key: value)'
+        opt :to_18, 'Convert to Ruby 1.8 syntax (:key => value)', :short => '-8'
+        opt :to_19, 'Convert to Ruby 1.9 syntax (key: value)', :short => '-8'
       end
     end
     
