@@ -1,7 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require_relative 'spec_helper'
 
 describe "HashSyntax" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+  it "has a version" do
+    HashSyntax::Version::STRING.should be >= "1.0.0"
   end
 end
