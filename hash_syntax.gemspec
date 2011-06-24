@@ -25,6 +25,7 @@ the old and the new syntaxes.}
     "README.rdoc",
     "Rakefile",
     "bin/hash_syntax",
+    "hash_syntax.gemspec",
     "lib/hash_syntax.rb",
     "lib/hash_syntax/runner.rb",
     "lib/hash_syntax/token.rb",
