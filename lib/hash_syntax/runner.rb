@@ -21,13 +21,13 @@ hash_syntax #{HashSyntax::Version::STRING} by Michael Edgar (adgar@carboni.ca)
 
 Automatically convert hash symbol syntaxes in your Ruby code.
 EOF
-        opt :to_18, 'Convert to Ruby 1.8 syntax (:key => value)', :short => '-8'
-        opt :to_19, 'Convert to Ruby 1.9 syntax (key: value)', :short => '-8'
+        opt :"to-18", 'Convert to Ruby 1.8 syntax (:key => value)', :short => '-8'
+        opt :"to-19", 'Convert to Ruby 1.9 syntax (key: value)', :short => '-8'
       end
     end
     
     def validate_options(opts)
-      Trollop::die 'Must specify --to_18 or --to_19' unless opts[:to_18] or opts[:to_19]
+      Trollop::die 'Must specify --to_18 or --to_19' unless opts[:"to-18"] or opts[:"to-19"]
     end
     
     AUTO_SUBDIRS = %w(app ext features lib spec test)

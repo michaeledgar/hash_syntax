@@ -7,9 +7,9 @@ module HashSyntax
     
     def transform(input_text, options)
       tokens = extract_tokens(input_text)
-      if options[:to_18]
+      if options[:"to-18"]
         transform_to_18(input_text, tokens, options)
-      elsif options[:to_19]
+      elsif options[:"to-19"]
         transform_to_19(input_text, tokens, options)
       else
         raise ArgumentError.new('Either :to_18 or :to_19 must be specified.')
