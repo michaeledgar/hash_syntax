@@ -27,7 +27,7 @@ EOF
     end
     
     def validate_options(opts)
-      Trollop::die 'Must specify --to_18 or --to_19' unless opts[:"to-18"] or opts[:"to-19"]
+      Trollop::die 'Must specify --to-18 or --to-19' unless opts[:"to-18"] or opts[:"to-19"]
     end
     
     AUTO_SUBDIRS = %w(app ext features lib spec test)
