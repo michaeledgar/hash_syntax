@@ -34,7 +34,7 @@ EOF
     
     def gather_files
       if ARGV.empty?
-        AUTO_SUBDIRS.map { |dir| Dir["#{Dir.pwd}/#{dir}/**/*.rb"] }.flatten
+        AUTO_SUBDIRS.map { |dir| Dir["#{Dir.pwd}/#{dir}/**/*.{rb,html.haml}"] }.flatten
       else
         ARGV
       end
