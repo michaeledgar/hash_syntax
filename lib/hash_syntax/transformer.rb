@@ -2,9 +2,9 @@ module HashSyntax
   module Transformer
     MATCH_18 = ObjectRegex.new('symbeg (ident | kw) sp? hashrocket')
     MATCH_19 = ObjectRegex.new('label')
-    
+
     extend self
-    
+
     def transform(input_text, options)
       tokens = extract_tokens(input_text)
       if options[:"to-18"]
@@ -12,18 +12,18 @@ module HashSyntax
       elsif options[:"to-19"]
         transform_to_19(input_text, tokens, options)
       else
-        raise ArgumentError.new('Either :to_18 or :to_19 must be specified.')
+        raise ArgumentError.new('Either :to-18 or :to-19 must be specified.')
       end
     end
-    
+
   private
-    
+
     def extract_tokens(text)
       swizzle_parser_flags do
         Ripper.lex(text).map { |token| Token.new(token) }
       end
     end
-    
+
     def swizzle_parser_flags
       old_w = $-w
       old_v = $-v
@@ -35,7 +35,7 @@ module HashSyntax
       $-v = old_v
       $-d = old_d
     end
-    
+
     def transform_to_18(input_text, tokens, options)
       lines = input_text.lines.to_a  # eagerly expand lines
       matches = MATCH_19.all_matches(tokens)
@@ -47,7 +47,7 @@ module HashSyntax
       end
       lines.join
     end
-    
+
     def transform_to_19(input_text, tokens, options)
       lines = input_text.lines.to_a  # eagerly expand lines
       matches = MATCH_18.all_matches(tokens)
