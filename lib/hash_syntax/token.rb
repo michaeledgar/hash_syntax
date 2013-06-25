@@ -7,11 +7,11 @@ module HashSyntax
     def initialize(token)
       (self.line, self.col), self.type, self.body = token
     end
-    
+
     def width
       body.size
     end
-    
+
     def reg_desc
       if type == :on_op && body == '=>'
         'hashrocket'

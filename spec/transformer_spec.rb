@@ -5,7 +5,7 @@ describe HashSyntax::Transformer do
     it 'can transform a simple hash' do
       'x = {:foo => :bar}'.should transform_to('x = {foo: :bar}', :to_19)
     end
-  
+
     it 'transforms all hashes in a block of code' do
       input = %q{
 with_jumps_redirected(:break => ensure_body[1], :redo => ensure_body[1], :next => ensure_body[1],
@@ -29,7 +29,7 @@ end
 }
       input.should transform_to(output, :to_19)
     end
-    
+
     it 'transforms all hashes in a block of code without minding tight spacing' do
       input = %q{
 with_jumps_redirected(:break=>ensure_body[1], :redo=>ensure_body[1], :next=>ensure_body[1],
