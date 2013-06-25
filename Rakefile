@@ -12,7 +12,7 @@ begin
   require 'yard'
   YARD::Rake::YardocTask.new
 rescue LoadError
-  task :yardoc do
-    abort "YARD is not available. In order to run yardoc, you must: sudo gem install yard"
+  task :yard do
+    abort "YARD is not available. Please run bundle exec rake yard"
   end
 end
