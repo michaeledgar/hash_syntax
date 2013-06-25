@@ -12,7 +12,7 @@ module HashSyntax
       elsif options[:"to-19"]
         transform_to_19(input_text, tokens, options)
       else
-        raise ArgumentError.new('Either :to_18 or :to_19 must be specified.')
+        raise ArgumentError.new('Either :to-18 or :to-19 must be specified.')
       end
     end
 
