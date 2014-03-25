@@ -3,7 +3,7 @@ require_relative 'spec_helper'
 describe HashSyntax::Transformer do
   describe 'transforming from 1.8 to 1.9 syntax' do
     it 'can transform a simple hash' do
-      'x = {:foo => :bar}'.should transform_to('x = {foo: :bar}', :to_19)
+      'x = {:foo => :bar}'.should transform_to('x = {foo: :bar}', :"to-19")
     end
   
     it 'transforms all hashes in a block of code' do
@@ -27,7 +27,7 @@ with_jumps_redirected(break: ensure_body[1], redo: ensure_body[1], next: ensure_
   walk_body_with_rescue_target(result, body, body_block, rescue_target, yield_fail_target)
 end
 }
-      input.should transform_to(output, :to_19)
+      input.should transform_to(output, :"to-19")
     end
     
     it 'transforms all hashes in a block of code without minding tight spacing' do
@@ -51,14 +51,14 @@ with_jumps_redirected(break:ensure_body[1], redo:ensure_body[1], next:ensure_bod
   walk_body_with_rescue_target(result, body, body_block, rescue_target, yield_fail_target)
 end
 }
-      input.should transform_to(output, :to_19)
+      input.should transform_to(output, :"to-19")
     end
 
   end
 
   describe 'transforming from 1.9 to 1.8 syntax' do
     it 'can transform a simple hash' do
-      'x = {foo: :bar}'.should transform_to('x = {:foo => :bar}', :to_18)
+      'x = {foo: :bar}'.should transform_to('x = {:foo => :bar}', :"to-18")
     end
 
     it 'transforms all hashes in a block of code' do
@@ -82,7 +82,7 @@ with_jumps_redirected(:break => ensure_body[1], :redo => ensure_body[1], :next =
   walk_body_with_rescue_target(result, body, body_block, rescue_target, yield_fail_target)
 end
 }
-      input.should transform_to(output, :to_18)
+      input.should transform_to(output, :"to-18")
     end
   end
 end
